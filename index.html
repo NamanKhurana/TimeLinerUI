@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/stunning.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -46,7 +46,7 @@
                                 <div class="form-group">
                                     <textarea class="form-control" placeholder="Write On The Wall"
                                         id="itemInput"></textarea><br>
-                                    <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add
+                                    <button type="submit" class="btn btn-primary addd"><i class="fas fa-plus"></i> Add
                                         Post</button>
                                     <div class="float-right">
                                         <div class="form-group jumbotron text-center" id="log">
@@ -59,42 +59,47 @@
                                 </div>
                             </form>
                         </div>
-                    </div><br>
-                    <!--    <div class="card post">
+                    </div></div><br>
+                    <!--<div class="card post">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-2">
                                     <div class="card" style="max-height:110px">
                                         <img src="img/user.png" style="height:80px" class="card-img-top" alt="...">
                                         <a href="profile.html">
-                                            <p style="font-size:17px;text-align:center;">User 3</p>
+                                            <p style="font-size:17px;text-align:center;">User</p>
                                         </a>
                                     </div>
-                                    <center><small class="likes text-center"><i class="far fa-thumbs-up"></i>&nbsp;5
+                                    <center><small class="likes text-center"><i
+                                                class="far fa-thumbs-up"></i>&nbsp;${likes}
                                             Likes</small></center>
                                 </div>
                                 <div class="col-sm-10">
                                     <div class="bubble">
                                         <div class="pointer">
-                                            <p class = "item-name">Tam rem aperiam, eaque ipsa quae ab
-                                                illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                                                explicabo.
-                                            </p>
+                                            <p class="item-name">${value}</p>
                                         </div>
                                         <div class="pointer-border">
                                         </div>
                                     </div>
-                                    <p class="post-actions"><a href="#">Comment</a> - <a href="#">Like</a> - <a
-                                            href="#">Follow</a> - <a href="#">Share</a></p>
+                                    <div class="item-icons float-right">
+                                        <a href="#" class="like-item mx-2 item-icon"><i
+                                                class="fas fa-thumbs-up fa-2x"></i></a>
+                                        <a href="#" class="edit-item mx-2 item-icon"><i
+                                                class="far fa-edit fa-2x"></i></a>
+                                        <a href="#" class="delete-item item-icon"><i
+                                                class="far fa-times-circle fa-2x"></i></a>
+                                    </div>
                                     <div class="comment-form">
                                         <form>
-                                            <div class="form-row align-items-center">
-                                                <div class="col-md-11">
-                                                    <input type="text" class="form-control mb-2" id="inlineFormInput"
+                                            <div class="form-row">
+                                                <div class="col-sm-12 col-xs-12 col-md-11">
+                                                    <input type="text" class="form-control mb-2" id="commentForm"
                                                         placeholder="Enter Comment">
                                                 </div>
-                                                <div class="col-md-1">
-                                                    <button type="submit" class="btn btn-primary mb-2">Add</button>
+                                                <div class="col-sm-1">
+                                                    <a href="#" class="add-comment item-icon"><i
+                                                            class="fas fa-comment fa-2x"></i></a>
                                                 </div>
                                             </div>
                                         </form>
@@ -123,8 +128,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>-->
-                </div>
+                    </div>
+                </div><br>-->
                 <div class="col-md-4">
                     <div class="card friends">
                         <div class="card-header">
@@ -132,14 +137,6 @@
                         </div>
                         <div class="card-body">
                             <ul>
-                                <li><a class="card" href="profile.html"><img src="img/user.png"></a></li>
-                                <li><a class="card" href="profile.html"><img src="img/user.png"></a></li>
-                                <li><a class="card" href="profile.html"><img src="img/user.png"></a></li>
-                                <li><a class="card" href="profile.html"><img src="img/user.png"></a></li>
-                                <li><a class="card" href="profile.html"><img src="img/user.png"></a></li>
-                                <li><a class="card" href="profile.html"><img src="img/user.png"></a></li>
-                                <li><a class="card" href="profile.html"><img src="img/user.png"></a></li>
-                                <li><a class="card" href="profile.html"><img src="img/user.png"></a></li>
                                 <li><a class="card" href="profile.html"><img src="img/user.png"></a></li>
                                 <li><a class="card" href="profile.html"><img src="img/user.png"></a></li>
                                 <li><a class="card" href="profile.html"><img src="img/user.png"></a></li>
@@ -164,23 +161,17 @@
                             <div class="group-item">
                                 <img src="img/group.png">
                                 <h4><a href="#">Group One</a></h4>
-                                <p>This is Dobble's Social Network Group</p>
+                                <p>This is TimeLiner's Social Network Group</p>
                             </div>
                             <div class="group-item">
                                 <img src="img/group.png">
                                 <h4><a href="#">Group Two</a></h4>
-                                <p>This is Dobble's Social Network Group</p>
+                                <p>This is TimeLiner's Social Network Group</p>
                             </div>
                             <div class="group-item">
                                 <img src="img/group.png">
                                 <h4><a href="#">Group Three</a></h4>
-                                <p>This is Dobble's Social Network Group</p>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="group-item">
-                                <img src="img/group.png">
-                                <h4><a href="#">Group Four</a></h4>
-                                <p>This is Dobble's Social Network Group</p>
+                                <p>This is TimeLiner's Social Network Group</p>
                             </div>
                             <div class="clearfix"></div>
                             <center><a class="btn btn-primary" style="margin-top:20px;" href="#">View All Groups</a>

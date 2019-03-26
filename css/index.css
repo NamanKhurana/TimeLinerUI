@@ -26,10 +26,13 @@ header .logo
     margin-left:56%;
 }
 
-#logo {
+#logo 
+{
     visibility: hidden;
 }
-.jumbotron {
+
+.jumbotron
+ {
     padding: 3%;
     height:40px;
     background:#007bff;
@@ -47,7 +50,7 @@ header .logo
 .bubble
 {
     position:relative;
-    width:580px;
+    width:100%;
     min-height:65px;
     padding:15px;
     background:#fff;
@@ -85,6 +88,7 @@ header .logo
     top:50%;
 }
 
+
 .item-icons
 {
     margin-bottom:35px;
@@ -95,7 +99,6 @@ header .logo
 {
     width:90%;
 }
-
 
 .comment-form input[type = "text"]
 {
@@ -166,5 +169,156 @@ footer
 
 .hello
 {
-    margin-bottom:20px;
+    margin-top:20px;
+    
 }
+
+@media screen and (max-width:900px)
+{
+     .addd
+     {
+            display: block;
+            width: 100%;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            margin-bottom:15px;
+         
+     }
+
+     .jumbotron {
+        background:#007bff;
+        color:white;
+        width:100%;
+        float:left !important;
+        padding:0  !important;
+        font-size: 16px;
+    }
+}
+
+/*
+@media screen and (max-width:600px)
+{
+     .addd
+     {
+            display: block;
+            width: 100%;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            margin-bottom:15px;
+         
+     }
+
+     .jumbotron {
+        padding: 3%;
+        background:#007bff;
+        color:white;
+        width:100%;
+        float:none;
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:900px)
+{
+     #commentForm
+     {
+         width:50% !important;
+     }
+}
+*/
+
+@media screen and (max-width:1000px)
+{
+    .jumbotron {
+        padding-top:0px;
+        background:#007bff;
+        color:white;
+        width:100%;
+        float:none;
+        font-size: 33px;
+        height:40px;
+
+    }
+
+    
+    .addd
+    {
+           display: block;
+           width: 100%;
+           border: none;
+           padding:0;
+           font-size: 30px;
+           margin-bottom:15px;
+        
+    }
+}
+
+@media screen and (max-width:800px)
+{
+    .add-comment
+    {
+        display:none !important;
+    }
+    
+    .hello{
+    margin-bottom:20px;}
+
+    .friends
+    {
+        margin-top:20px;
+    }
+
+}
+
+@media screen and (max-width:670px)
+{
+    .friends
+    {
+        margin-top:20px;
+    }
+
+}
+
+@media screen and (max-width:600px)
+{
+    h1{
+        font-size:4rem !important;
+    }
+}
+
+@media screen and (max-width:400px)
+{
+    h1{
+        font-size:3rem !important;
+    }
+    .jumbotron {
+        padding-top:0px;
+        background:#007bff;
+        color:white;
+        width:100%;
+        float:none;
+        font-size: 23px;
+        height:40px;
+
+    }
+
+    
+    .addd
+    {
+           display: block;
+           width: 100%;
+           border: none;
+           padding:0;
+           font-size: 20px;
+           margin-bottom:15px;
+        
+    }
+}
+
