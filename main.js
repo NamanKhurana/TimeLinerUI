@@ -1,8 +1,9 @@
 var count = 0;
-const itemForm = document.getElementById("item-form")
-const itemInput = document.getElementById("itemInput")
-let dHead = document.getElementById("item-head")
-let itemData = JSON.parse(localStorage.getItem("list")) || [];
+var likes = 0;
+var itemForm = document.getElementById("item-form")
+var itemInput = document.getElementById("itemInput")
+var dHead = document.getElementById("item-head")
+var itemData = JSON.parse(localStorage.getItem("list")) || [];
 //console.log(itemData);
 
 if (itemData.length > 0) {
@@ -24,7 +25,7 @@ if (itemData.length > 0) {
                                 <div class="col-sm-10">
                                     <div class="bubble">
                                         <div class="pointer">
-                                            <p class = "item-name">${singleItem}</p>
+                                            <p class = "item-name">${singleItem.dataInfo}</p>
                                         </div>
                                         <div class="pointer-border">
                                         </div>
@@ -74,7 +75,7 @@ if (itemData.length > 0) {
                     </div>
         `)
 
-        handleItem(singleItem)
+        handleItem(singleItem.dataInfo)
     })
 }
 
@@ -83,7 +84,7 @@ if (itemData.length > 0) {
 itemForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const textValue = itemInput.value;
+    var textValue = itemInput.value;
 
     //  console.log(textValue);
      
@@ -94,7 +95,7 @@ itemForm.addEventListener("submit", function (event) {
     //CLEAR the form
     itemInput.value = "";
     //add item to array
-    itemData.push(textValue)
+    itemData.push({dataInfo:textValue,likeCount:likes})
     // console.log(itemData)
 
     //LOCALSTORAGE
@@ -188,14 +189,16 @@ function handleItem(textValue, count = 0) {
     items.forEach(function (item) {
         if (item.querySelector(".item-name").textContent === textValue) {  //EDIT EVENT LISTENER
             item.querySelector(".edit-item").addEventListener("click", function () {
-                itemInput.value = textValue;
+                
+                if(itemInput.value === '')
+               { itemInput.value = textValue;
                 dHead.removeChild(item)
                 //  console.log(itemData)
                 itemData = itemData.filter(function (item) {
-                    return item !== textValue
+                    return item.dataInfo !== textValue
                 })
                 // console.log(itemData)
-                localStorage.setItem("list", JSON.stringify(itemData))
+                localStorage.setItem("list", JSON.stringify(itemData)) }
 
             })
 
@@ -204,7 +207,7 @@ function handleItem(textValue, count = 0) {
                 event.preventDefault();
                 dHead.removeChild(item)
                 itemData = itemData.filter(function (item) {
-                    return item !== textValue
+                    return item.dataInfo !== textValue
                 })
                 localStorage.setItem("list", JSON.stringify(itemData))
 
