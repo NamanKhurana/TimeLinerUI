@@ -17,6 +17,7 @@ h1 span
  margin:0;
  padding:0;
  animation:animate 2.50s linear infinite;
+ -webkit-animation:animate 2.50s linear infinite;
  text-shadow:0 0 10px #00b3ff;
 }
 
@@ -85,3 +86,27 @@ h1 span:nth-child(10)
 	}
 
 }
+
+@-webkit-keyframes animate {
+
+	0%,100%
+	{
+      color:rgb(226, 255, 255);
+      /*filter:blur(2px);*/
+     /* text-shadow:0 0 10px #00b3ff
+                 0 0 20px #00b3ff,
+                 0 0 40px #00b3ff,
+                 0 0 80px #00b3ff,
+                 0 0 120px #00b3ff,
+                 0 0 200px #00b3ff,
+                 0 0 300px #00b3ff,
+                 0 0 400px #00b3ff, 
+*/
+	}
+     
+	5%,95%
+	{
+      color:rgb(3, 22, 75);
+      /*filter:blur(0px);*/
+	}
+  }

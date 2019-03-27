@@ -1,18 +1,3 @@
-/*function addComment(event) {
-    event.preventDefault();
-    let a = document.getElementById("inlineFormInput").value;
-    let commentHead = document.getElementById("commentHead");
-    let d = document.createElement("div");
-    d.classList.add("comment");
-
-    d.innerHTML = `<a class="comment-avatar float-left" href="#"><img src="img/user.png"></a>
-    <div class="comment-text">
-        <p>${a}</p>
-    </div>`
-
-    commentHead.appendChild(d);
-}*/
-
 var count = 0;
 const itemForm = document.getElementById("item-form")
 const itemInput = document.getElementById("itemInput")
@@ -27,13 +12,13 @@ if (itemData.length > 0) {
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <div class="card" style="max-height:110px">
+                                    <div class="card">
                                         <img src="img/user.png" style="height:80px" class="card-img-top" alt="...">
                                         <a href="profile.html">
                                             <p style="font-size:17px;text-align:center;">User</p>
                                         </a>
                                     </div>
-                                    <center><small class="likes text-center"><i class="far fa-thumbs-up"></i>&nbsp;5
+                                    <center><small class="likes text-center"><i class="far fa-thumbs-up"></i>&nbsp;0
                                             Likes</small></center>
                                 </div>
                                 <div class="col-sm-10">
@@ -93,103 +78,18 @@ if (itemData.length > 0) {
     })
 }
 
-/*
-window.addEventListener('load', init);
-
-function init() {
-    document.querySelector('#logo').addEventListener('change', function () {
-        var file = document.querySelector('#logo').files[0];
-
-        var reader = new FileReader();
-
-        reader.onloadend = function () {
-
-            //  document.querySelector('#log').appendChild(preview);
-            let d = document.createElement("div");
-            d.classList.add("hello", "card");
-            d.innerHTML =
-                `   <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-2">
-                                    <div class="card" style="max-height:110px">
-                                        <img src="img/user.png" style="height:80px" class="card-img-top" alt="...">
-                                        <a href="profile.html">
-                                            <p style="font-size:17px;text-align:center;">User 3</p>
-                                        </a>
-                                    </div>
-                                    <center><small class="likes text-center"><i class="far fa-thumbs-up"></i>&nbsp;5
-                                            Likes</small></center>
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class = "uploadImg" id = "imageUpload">
-                                    </div>
-                                       <div class="item-icons float-right">
-                                    <a href="#" class="delete-item item-icon"><i class="far fa-times-circle fa-2x"></i></a>
-                                    </div>
-                                    <div class="comment-form">
-                                        <form>
-                                            <div class="form-row align-items-center">
-                                                <div class="col-md-11">
-                                                    <input type="text" class="form-control mb-2" id="commentForm"
-                                                        placeholder="Enter Comment">
-                                                </div>
-                                                <div class="col-md-1">
-                                                <a href="#" class="add-comment item-icon"><i class="fas fa-comment fa-2x"></i></a>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="comments">
-                                        <div class="comment">
-                                            <a class="comment-avatar float-left" href="#"><img src="img/user.png"></a>
-                                            <div class="comment-text">
-                                                <p>Dit amet consectetur adipisci velit sed quia non numquam </p>
-                                            </div>
-                                        </div>
-                                        <div class="comment">
-                                            <a class="comment-avatar float-left" href="#"><img src="img/user.png"></a>
-                                            <div class="comment-text">
-                                                <p>Itaque earum rerum hic tenetur a sapiente delectusr</p>
-                                            </div>
-                                        </div>
-                                        <div class="comment">
-                                            <a class="comment-avatar float-left" href="#"><img src="img/user.png"></a>
-                                            <div class="comment-text">
-                                                <p>Cupiditate non provident similique sunt in culpa qui</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`
-            dHead.appendChild(d);
-            var preview = document.createElement('img');
-            preview.style.height = "50px";
-            document.querySelector(".uploadImg").appendChild(preview)
-            preview.src = reader.result;
-        };
-        if (file) {
-            reader.readAsDataURL(file);
-        }
-        else {
-            preview.src = "";
-        }
-    });
-
-}
-*/
 
 //FORM SUBMISSION
 itemForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const textValue = itemInput.value;
-    var likes = count
-    //  console.log(textValue);
 
+    //  console.log(textValue);
+     
+    if(textValue !== "")
     //addItem
-    addItem(textValue, likes)
+   { addItem(textValue) 
 
     //CLEAR the form
     itemInput.value = "";
@@ -203,12 +103,13 @@ itemForm.addEventListener("submit", function (event) {
     //ADD EVENT LISTENERS TO CHILDREN
     handleItem(textValue)
 
+    }
 })
 
 
 
 //ADD ITEM
-function addItem(value, likes) {
+function addItem(value,count=0) {
     let d = document.createElement("div");
     d.classList.add("hello", "card");
     d.innerHTML =
@@ -221,7 +122,7 @@ function addItem(value, likes) {
                                             <p style="font-size:17px;text-align:center;">User</p>
                                         </a>
                                     </div>
-                                    <center><small class="likes text-center"><i class="far fa-thumbs-up"></i>&nbsp;${likes}
+                                    <center><small class="likes text-center"><i class="far fa-thumbs-up"></i>&nbsp;${count}
                                             Likes</small></center>
                                 </div>
                                 <div class="col-sm-10">
@@ -298,7 +199,9 @@ function handleItem(textValue, count = 0) {
 
             })
 
-            item.querySelector(".delete-item").addEventListener("click", function () {  //DELETE EVENT LISTENER
+            item.querySelector(".delete-item").addEventListener("click", function (event) {  //DELETE EVENT LISTENER
+                
+                event.preventDefault();
                 dHead.removeChild(item)
                 itemData = itemData.filter(function (item) {
                     return item !== textValue
@@ -307,11 +210,37 @@ function handleItem(textValue, count = 0) {
 
             })
 
-            item.querySelector(".like-item").addEventListener("click", function () {
-                document.querySelector(".likes").innerHTML = `<i class="far fa-thumbs-up"></i>&nbsp;${count}
-                Likes`
+            item.querySelector(".like-item").addEventListener("click", function (event) {
+               
+                event.preventDefault();
 
                 count++;
+               
+                item.querySelector(".likes").innerHTML = `<i class="far fa-thumbs-up"></i>&nbsp;${count}
+                Likes`
+
+               
+            })
+
+            item.querySelector(".add-comment").addEventListener("click", function (event) {
+               
+                event.preventDefault();
+
+                var value = item.querySelector("#commentForm").value;
+                
+                if(value !== '')
+                {
+                var comment = document.createElement("div");
+                comment.classList.add("comment");
+                comment.innerHTML = `<a class="comment-avatar float-left" href="#"><img src="img/user.png"></a>
+                <div class="comment-text">
+                    <p>${value}</p>
+                </div>`
+                
+                 item.querySelector("#commentForm").value = '';
+
+                 item.querySelector(".comments").appendChild(comment)
+                }
             })
         }
     })
