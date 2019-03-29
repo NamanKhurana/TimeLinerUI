@@ -44,6 +44,7 @@ if (itemData.length > 0) {
                                                 </div>
                                                 <div class="col-md-1">
                                                 <a href="#" class="add-comment item-icon"><i class="fas fa-comment fa-2x"></i></a>
+                                                <button type = "button" class="btn btn-primary btn-block comment-btn"><i class="fas fa-comment fa-2x"></i></button>
                                                 </div>
                                             </div>
                                         </form>
@@ -148,7 +149,8 @@ function addItem(value,count=0) {
                                                 </div>
                                                 <div class="col-md-1">
                                                 <a href="#" class="add-comment item-icon"><i class="fas fa-comment fa-2x"></i></a>
-                                                </div>
+                                                <button type = "button" class="btn btn-primary btn-block comment-btn"><i class="fas fa-comment fa-2x"></i></button>
+                                               </div>
                                             </div>
                                         </form>
                                     </div>
@@ -226,6 +228,27 @@ function handleItem(textValue, count = 0) {
             })
 
             item.querySelector(".add-comment").addEventListener("click", function (event) {
+               
+                event.preventDefault();
+
+                var value = item.querySelector("#commentForm").value;
+                
+                if(value !== '')
+                {
+                var comment = document.createElement("div");
+                comment.classList.add("comment");
+                comment.innerHTML = `<a class="comment-avatar float-left" href="#"><img src="img/user.png"></a>
+                <div class="comment-text">
+                    <p>${value}</p>
+                </div>`
+                
+                 item.querySelector("#commentForm").value = '';
+
+                 item.querySelector(".comments").appendChild(comment)
+                }
+            })
+
+            item.querySelector(".comment-btn").addEventListener("click", function (event) {
                
                 event.preventDefault();
 

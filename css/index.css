@@ -272,6 +272,14 @@ footer
 
 }
 
+@media screen and (max-width:768px)
+{
+    .add-comment
+    {
+        display:none;
+    }
+}
+
 @media screen and (max-width:670px)
 {
     .friends
@@ -287,6 +295,37 @@ footer
         font-size:4rem !important;
     }
 }
+
+@media screen and (max-width:578px)
+{
+    .bubble
+{
+    position:relative;
+    width:100%;
+    min-height:65px;
+    padding:15px;
+    background:#fff;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+   
+
+    .bubble::after
+{
+    display:none;
+    width:0;
+    z-index:1;
+    margin-top:-15px;
+    left:-15px;
+    top:50%;
+}
+
+.bubble::before
+{
+    display:none;
+}
+}
+
 
 @media screen and (max-width:400px)
 {
@@ -317,3 +356,11 @@ footer
     }
 }
 
+
+@media screen and (min-width:768px)
+{
+    .comment-btn
+    {
+        display:none !important;
+    }
+}
